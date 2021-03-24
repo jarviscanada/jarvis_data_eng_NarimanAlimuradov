@@ -15,14 +15,14 @@ CREATE TABLE PUBLIC.host_info
      cpu_mhz          FLOAT NOT NULL, 
      L2_cache         INTEGER NOT NULL, 
      total_mem        INTEGER NOT NULL, 
-     "timestamp"      TIMESTAMP NOT NULL 
+     timestamp        TIMESTAMP NOT NULL 
   );
 
 
 -- create the 'host_usage' table, which will periodically store resource usage data
 CREATE TABLE PUBLIC.host_usage 
   ( 
-     "timestamp"    TIMESTAMP NOT NULL, 
+     timestamp      TIMESTAMP NOT NULL, 
      host_id        SERIAL NOT NULL REFERENCES host_info (id) ON DELETE CASCADE, 
      memory_free    INTEGER NOT NULL,
      cpu_idle       INTEGER NOT NULL,

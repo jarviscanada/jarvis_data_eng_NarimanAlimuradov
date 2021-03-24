@@ -21,13 +21,12 @@ cpu_kernel=$(vmstat --unit M | egrep -v 'cpu|id' | awk '{ print $14 }' | xargs)
 disk_io=$(vmstat --unit M | egrep -v 'io|bi' | awk '{ print $9+$10 }' | xargs)
 disk_available=$(df -BM / | egrep "^/dev/sda2" | awk '{print $4}' | sed 's/.$//' | xargs)
 timestamp=$(date +"%Y-%m-%d %T")
-hostname=$(hostname -f)
+host_name=$(hostname -f)
 
 # create the insert statement that will be used in the database
-insert_stmt="INSERT INTO host_usage (timestamp, host_id, memory_free, cpu_idle, cpu_kernel, disk_io, disk_available)
-		VALUES ($timestamp, SELECT id FROM host_info WHERE host_name=$host_name, $memory_free, $cpu_idle, $cpu_kernel, $disk_io, $disk_available);"
+insert_stmt="INSERT INTO host_usage (timestamp, host_id, memory_free, cpu_idle, cpu_kernel, disk_io, disk_available) VALUES ('$timestamp', (SELECT id FROM host_info WHERE hostname='$host_name'), '$memory_free', '$cpu_idle', '$cpu_kernel', '$disk_io', '$disk_available');"
 
 # export the password run the insert statement in psql
 export PGPASSWORD=$psql_password
-psql -h $psql_host -p $psql_port -d $db_name -U $psql_user -c $insert_stmt
+psql -h "$psql_host" -p "$psql_port" -d "$db_name" -U "$psql_user" -c "$insert_stmt"
 exit $?
