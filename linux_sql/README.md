@@ -87,7 +87,7 @@ Usage: ```psql -h localhost -U postgres -W sql/ddl.sql```
 <br/><br/>
 
 **queries.sql**
-> Contains some sample queries that
+> Contains some sample queries that can be used to test the monitoring agents.
 
 Usage: ```psql -h localhost -U postgres -W sql/queries.sql```
 <br/><br/>
@@ -130,7 +130,7 @@ The information being recorded from both scripts consists of the following:
 The monitoring agent was fully set up and tested on a **CentOS 7** virtual machine. Testing was performed on a singular server computer, with other computers being simulated using artificial data points. 
 
 ![Example Query](assets/query_data.png)
-> Above is an example of the average memory used for three machines in every five minute interval.
+> Above is an example of the average memory used for three machines during several five minute intervals.
 
 ## Improvements
 While the monitoring agent has many great uses currently, there are a few improvements that would be welcome additions:
