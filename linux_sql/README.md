@@ -142,6 +142,6 @@ While the monitoring agent has many great uses currently, there are a few improv
   * Although resource usage data is fetched periodically, hardware information will not be changed after initialization. Providing the option of monitoring the hardware info over time will allow the user to not have to start from scratch when a hardware change is made.
 
 * **One master file**
-  * An idea that has crossed my mind during implementation was having one file that combines all the setup steps together. This can provide a much more straightforward initialization process for a user, especially if they are unfamiliar with the environment.
+  * A great way to simplify the setup could be to have one file that combines all the setup steps together. This can provide a much more straightforward initialization process for a user, especially if they are unfamiliar with the environment.
 
 Enjoy!
