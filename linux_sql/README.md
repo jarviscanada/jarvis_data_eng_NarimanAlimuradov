@@ -1,6 +1,6 @@
 # Linux Cluster Monitoring Agent
 
-Multi-machine networks can be difficult
+Monitoring multiple machines can be tricky, and aggregating that information to one location can be even trickier.
 
 ## How do I use it?
 
