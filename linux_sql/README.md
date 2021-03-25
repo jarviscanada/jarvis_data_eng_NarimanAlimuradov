@@ -9,26 +9,35 @@ Key technologies used: **Bash**, **PostgreSQL**, **Docker**, **Git**, **Linux**
 
 ## How do I use it?
 
-First, we want to create a PSQL Docker container using the 'create' option. If it already exists, we can simply pass 'start' as the only option instead.
+First, we want to create a PSQL Docker container using the **create** option. If it already exists, we can simply pass **start** as the only option instead.
 ```
 $ bash scripts/psql_docker.sh create db_username db_password
 ```
 
+There are variable names in the following commands, here are the values you may want to use:
+
+| Variable  | Example Value |
+| ------------- | ------------- |
+| psql_host | localhost |
+| psql_port | 5432 |
+| db_name | host_agent |
+| psql_user | postgres |
+
 Next, it's important to connect to PSQL and create the **database** if it has not been created yet.
 ```
-$ psql -h localhost -U postgres -W
+$ psql -h psql_host -U psql_user -W
 postgres=# CREATE DATABASE host_agent;
 ```
 
 Now, we can run our **ddl** file that will set up the tables required to store our data.
 ```
-$ psql -h localhost -U postgres -d host_agent -f sql/ddl.sql
+$ psql -h psql_host -U psql_user -d db_name -f sql/ddl.sql
 ```
 
 The host scripts will do the heavy lifting of obtaining the data. Both will require a **hostname**, a **port number**, a **database name**, a **PSQL username**, and a **PSQL password** as arguments. It's important to run **host_info first** as host_usage must fetch data from host_info.
 ```
-$ bash scripts/host_info.sh psql_host host_agent db_name psql_user psql_password
-$ bash scripts/host_usage.sh psql_host host_agent db_name psql_user psql_password
+$ bash scripts/host_info.sh psql_host psql_port db_name psql_user psql_password
+$ bash scripts/host_usage.sh psql_host psql_port db_name psql_user psql_password
 ```
 
 Crontab can be used to periodically fetch the host_usage data. You can edit the crontab with:
@@ -37,12 +46,12 @@ $ crontab -e
 ```
 You can then insert the following into the crontab to have the system usage be read and stored every minute.
 ```
-* * * * * bash /home/centos/dev/jrvs/bootcamp/linux_sql/host_agent/scripts/host_usage.sh localhost 5432 host_agent postgres password > /tmp/host_usage.log
+* * * * * bash full_path_to/host_usage.sh psql_host psql_port db_name psql_user psql_password > /tmp/host_usage.log
 ```
 
-Test out your work with the **queries.sql** file. Run it to see if the sample queries are operational.
+Test out your work with **queries.sql**. Run it to see if the sample queries are operational.
 ```
-$ psql -h localhost -U postgres -d host_agent -f sql/queries.sql
+$ psql -h psql_host -U psql_user -d db_name -f sql/queries.sql
 ```
 
 # Implementation
@@ -60,37 +69,35 @@ This project consists of five key scripts, as well as a Linux **crontab** for pe
 **psql_docker.sh**
 > Shell script that is used to create, start, or stop the PostgreSQL Docker container. A username and password must be passed if creating the container.
 
-Usage: ```bash psql_docker.sh create|start|stop [db_username] [db_password]```
+Usage: ```bash scripts/psql_docker.sh create|start|stop [db_username] [db_password]```
 <br/><br/>
 
 **host_info.sh**
 > Shell script that will fetch the **hardware specifications** of the machine and insert it into the database. The hostname, port number, database name, database username, and database password must be passed.
 
-Usage: ```bash host_info.sh psql_host psql_port db_name psql_user psql_password```
+Usage: ```bash scripts/host_info.sh localhost 5432 host_agent postgres your_password```
 <br/><br/>
 
 **host_usage.sh**
 > Shell script that will fetch the **resource usage** of the machine and insert it into the database. The hostname, port number, database name, database username, and database password must be passed.
 
-Usage: ```bash host_usage.sh psql_host psql_port db_name psql_user psql_password```
+Usage: ```bash scripts/host_usage.sh localhost 5432 host_agent postgres your_password```
 <br/><br/>
 
 **ddl.sql**
 > Creates the SQL table structure that will be used to store the data obtained from **host_info.sh** and **host_usage.sh**.
 
-Usage: ```psql -h localhost -U postgres -W ddl.sql```
+Usage: ```psql -h localhost -U postgres -W sql/ddl.sql```
 <br/><br/>
 
 **queries.sql**
-> Contains some sample queries 
+> Contains some sample queries that
 
-Usage: ```psql -h localhost -U postgres -W queries.sql```
-
+Usage: ```psql -h localhost -U postgres -W sql/queries.sql```
+<br/><br/>
 
 **crontab**
-> Contains some sample queries 
-
-Usage: ```psql -h localhost -U postgres -W queries.sql```
+> A special file that is used to periodically run a file over and over again. Very useful for active monitoring processes.
 
 ## Database Modeling
 
@@ -136,7 +143,7 @@ While the monitoring agent has many great uses currently, there are a few improv
 * **Tracking hardware changes**
  * Although resource usage data is fetched periodically, hardware information will not be changed after initialization. Providing the option of monitoring the hardware info over time will allow the user to not have to start from scratch when a hardware change is made.
 
-* **ONE MORE**
- * asdsa
+* **One master file**
+ * An idea that has crossed my mind during implementation was having one file that combines all the setup steps together. This can provide a much more straightforward initialization process for a user, especially if they are unfamiliar with the environment.
 
 Enjoy!
