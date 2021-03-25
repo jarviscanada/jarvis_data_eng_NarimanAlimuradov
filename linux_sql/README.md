@@ -23,7 +23,7 @@ There are variable names in the following commands, here are the values you may 
 | db_name | host_agent |
 | psql_user | postgres |
 
-Next, it's important to connect to PSQL and create the **database** if it has not been created yet.
+It's important to connect to PSQL and create the **database** if it has not been created yet.
 ```
 $ psql -h psql_host -U psql_user -W
 postgres=# CREATE DATABASE host_agent;
@@ -34,7 +34,7 @@ Now, we can run our **ddl** file that will set up the tables required to store o
 $ psql -h psql_host -U psql_user -d db_name -f sql/ddl.sql
 ```
 
-The host scripts will do the heavy lifting of obtaining the data. Both will require a **hostname**, a **port number**, a **database name**, a **PSQL username**, and a **PSQL password** as arguments. It's important to run **host_info first** as host_usage must fetch data from host_info.
+The host scripts will do the heavy lifting of obtaining the data. Both will require a **hostname**, a **port number**, a **database name**, a **PSQL username**, and a **PSQL password** as arguments. It's important to run host_info **first** as host_usage must fetch data from host_info.
 ```
 $ bash scripts/host_info.sh psql_host psql_port db_name psql_user psql_password
 $ bash scripts/host_usage.sh psql_host psql_port db_name psql_user psql_password
@@ -44,7 +44,7 @@ Crontab can be used to periodically fetch the host_usage data. You can edit the 
 ```
 $ crontab -e
 ```
-You can then insert the following into the crontab to have the system usage be read and stored every minute.
+Insert the following into the crontab to have the system usage be read and stored every minute.
 ```
 * * * * * bash full_path_to/host_usage.sh psql_host psql_port db_name psql_user psql_password > /tmp/host_usage.log
 ```
@@ -138,12 +138,12 @@ show sample of tables to prove sql scripts good
 While the monitoring agent has many great uses currently, there are a few improvements that would be welcome additions:
 
 * **Wider selection of resource usage data**
- * Having a larger selection of accessible usage data can provide a more holistic view of the system. It is important to note that this may slow down data collection as well as introduce more complexity to the user.
+  * Having a larger selection of accessible usage data can provide a more holistic view of the system. It is important to note that this may slow down data collection as well as introduce more complexity to the user.
 
 * **Tracking hardware changes**
- * Although resource usage data is fetched periodically, hardware information will not be changed after initialization. Providing the option of monitoring the hardware info over time will allow the user to not have to start from scratch when a hardware change is made.
+  * Although resource usage data is fetched periodically, hardware information will not be changed after initialization. Providing the option of monitoring the hardware info over time will allow the user to not have to start from scratch when a hardware change is made.
 
 * **One master file**
- * An idea that has crossed my mind during implementation was having one file that combines all the setup steps together. This can provide a much more straightforward initialization process for a user, especially if they are unfamiliar with the environment.
+  * An idea that has crossed my mind during implementation was having one file that combines all the setup steps together. This can provide a much more straightforward initialization process for a user, especially if they are unfamiliar with the environment.
 
 Enjoy!
