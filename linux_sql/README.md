@@ -34,17 +34,13 @@ Now, we can run our **ddl** file that will set up the tables required to store o
 $ psql -h psql_host -U psql_user -d db_name -f sql/ddl.sql
 ```
 
-The host scripts will do the heavy lifting of obtaining the data. Both will require a **hostname**, a **port number**, a **database name**, a **PSQL username**, and a **PSQL password** as arguments. It's important to run host_info **first** as host_usage must fetch data from host_info.
+The host scripts will do the heavy lifting of obtaining the data. Both will require a **hostname**, a **port number**, a **database name**, a **PSQL username**, and a **PSQL password** as arguments. It's necessary to run host_info **first** as host_usage must fetch data from host_info.
 ```
 $ bash scripts/host_info.sh psql_host psql_port db_name psql_user psql_password
 $ bash scripts/host_usage.sh psql_host psql_port db_name psql_user psql_password
 ```
 
-Crontab can be used to periodically fetch the host_usage data. You can edit the crontab with:
-```
-$ crontab -e
-```
-Insert the following into the crontab to have the system usage be read and stored every minute.
+Crontab can be used to periodically fetch the host_usage data. Open the crontab with ```$ crontab -e``` and insert the following line to have the system usage be read and stored every minute.
 ```
 * * * * * bash full_path_to/host_usage.sh psql_host psql_port db_name psql_user psql_password > /tmp/host_usage.log
 ```
