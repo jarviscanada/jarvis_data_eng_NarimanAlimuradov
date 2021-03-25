@@ -1,10 +1,26 @@
 # Linux Cluster Monitoring Agent
 
-Monitoring multiple machines can be tricky, and aggregating that information to one location can be even trickier.
+Monitoring multiple machines can be tricky, and aggregating that information to one location can be even trickier. This monitoring agent system aims to simplify and automate this to allow for ease-of-use and scalability. A beginner Linux user looking to monitor their machine(s) should have no trouble following along.
+
+The project files contain the scripts that will pull the machine information as well as provide a way to set up the database.
+
+Key technologies used: **Bash**, **PostgreSQL**, **Docker**, **Git**, **Linux**
+
 
 ## How do I use it?
 
-Liek this.
+First, we want to create a PSQL Docker container using the 'create' option. If it already exists, we can simply pass 'start' as the only option instead.
+```
+$ bash psql_docker.sh create db_username db_password
+```
+Next, we must set up our database tables. It's important to set up a **password** environment variable as well as the **database name**.
+```
+export PASSWORD
+```
+
+Then,
+```
+```
 
 # Implementation
 **Bash scripts** are used to collect hardware specifications as well as resource usage.
