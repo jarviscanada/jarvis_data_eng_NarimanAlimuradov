@@ -1,7 +1,7 @@
 -- Nariman Alimuradov
 -- ddl.sql will create the relations required to store the usage data and specs of the machine(s).
 
--- first we want to make sure we are using the 'host_agent' databsae
+-- first we want to make sure we are using the 'host_agent' database
 \c host_agent
 
 -- create the 'host_info' table, which will store machine specifications
