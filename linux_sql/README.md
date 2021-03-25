@@ -11,15 +11,38 @@ Key technologies used: **Bash**, **PostgreSQL**, **Docker**, **Git**, **Linux**
 
 First, we want to create a PSQL Docker container using the 'create' option. If it already exists, we can simply pass 'start' as the only option instead.
 ```
-$ bash psql_docker.sh create db_username db_password
-```
-Next, we must set up our database tables. It's important to set up a **password** environment variable as well as the **database name**.
-```
-export PASSWORD
+$ bash scripts/psql_docker.sh create db_username db_password
 ```
 
-Then,
+Next, it's important to connect to PSQL and create the **database** if it has not been created yet.
 ```
+$ psql -h localhost -U postgres -W
+postgres=# CREATE DATABASE host_agent;
+```
+
+Now, we can run our **ddl** file that will set up the tables required to store our data.
+```
+$ psql -h localhost -U postgres -d host_agent -f sql/ddl.sql
+```
+
+The host scripts will do the heavy lifting of obtaining the data. Both will require a **hostname**, a **port number**, a **database name**, a **PSQL username**, and a **PSQL password** as arguments. It's important to run **host_info first** as host_usage must fetch data from host_info.
+```
+$ bash scripts/host_info.sh psql_host host_agent db_name psql_user psql_password
+$ bash scripts/host_usage.sh psql_host host_agent db_name psql_user psql_password
+```
+
+Crontab can be used to periodically fetch the host_usage data. You can edit the crontab with:
+```
+$ crontab -e
+```
+You can then insert the following into the crontab to have the system usage be read and stored every minute.
+```
+* * * * * bash /home/centos/dev/jrvs/bootcamp/linux_sql/host_agent/scripts/host_usage.sh localhost 5432 host_agent postgres password > /tmp/host_usage.log
+```
+
+Test out your work with the **queries.sql** file. Run it to see if the sample queries are operational.
+```
+$ psql -h localhost -U postgres -d host_agent -f sql/queries.sql
 ```
 
 # Implementation
@@ -32,7 +55,7 @@ A **client-server** architecture is used. Each client computer will have a copy 
 ![Architecture](assets/architecture.png)
 
 ## What do the scripts do?
-This project consists of five key scripts:
+This project consists of five key scripts, as well as a Linux **crontab** for periodic data collection:
 
 **psql_docker.sh**
 > Shell script that is used to create, start, or stop the PostgreSQL Docker container. A username and password must be passed if creating the container.
@@ -59,6 +82,12 @@ Usage: ```psql -h localhost -U postgres -W ddl.sql```
 <br/><br/>
 
 **queries.sql**
+> Contains some sample queries 
+
+Usage: ```psql -h localhost -U postgres -W queries.sql```
+
+
+**crontab**
 > Contains some sample queries 
 
 Usage: ```psql -h localhost -U postgres -W queries.sql```
