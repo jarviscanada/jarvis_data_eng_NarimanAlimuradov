@@ -13,7 +13,7 @@ These values are then stored in a **PostgreSQL** database provisioned using **Do
 ## Architecture
 A **client-server** architecture is used. Each client computer will have a copy of the script, while the server computer will also store the database.
 
-![Architecture](scripts/architecture.png)
+![Architecture](assets/architecture.png)
 
 ## What do the scripts do?
 This project consists of five key scripts:
