@@ -40,7 +40,7 @@ $ bash scripts/host_info.sh psql_host psql_port db_name psql_user psql_password
 $ bash scripts/host_usage.sh psql_host psql_port db_name psql_user psql_password
 ```
 
-Crontab can be used to periodically fetch the host_usage data. Open the crontab with ```$ crontab -e``` and insert the following line to have the system usage be read and stored every minute.
+**Crontab** can be used to periodically fetch the host_usage data. Open the crontab with ```$ crontab -e``` and insert the following line to have the system usage be read and stored every minute.
 ```
 * * * * * bash full_path_to/host_usage.sh psql_host psql_port db_name psql_user psql_password > /tmp/host_usage.log
 ```
@@ -126,9 +126,11 @@ The information being recorded from both scripts consists of the following:
 | disk_available | Amount of disk space in root directory (in MB) |
 
 ## Test Examples
-how did i test bash scripts
-show sample of tables to prove sql scripts good
 
+The monitoring agent was fully set up and tested on a **CentOS 7** virtual machine. Testing was performed on a singular server computer, with other computers being simulated using artificial data points. 
+
+![Example Query](assets/query_data.png)
+> Above is an example of the average memory used for three machines in every five minute interval.
 
 ## Improvements
 While the monitoring agent has many great uses currently, there are a few improvements that would be welcome additions:
