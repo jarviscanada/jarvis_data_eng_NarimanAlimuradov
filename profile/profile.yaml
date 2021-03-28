@@ -3,7 +3,8 @@ github_repo_root_url: https://github.com/jarviscanada/jarvis_data_eng_NarimanAli
 
 # Introduce yourself, your academic and professional background.
 # What excites you about the software industry and your passion. 80 words
-summary: Hello, I'm a recent graduate from McMaster University's software engineering program. 
+summary: Hi I'm Nariman, a recent graduate from McMaster University's software engineering program! During my undergrad, I spent eight months as a software 
+developer for Adlib Software, where I designed document detection models on the machine learning team. I have recently joined Jarvis as a data engineer and
 
 skills:
   proficient:
@@ -58,7 +59,7 @@ jarvis_projects:
 highlighted_projects:
   - name: "Subreddit Recommender"
     git_url: "https://github.com/nalimuradov/subreddit_recommender"
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed venenatis a orci ac malesuada. Vivamus ligula elit, viverra eu ante porttitor, blandit convallisLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed venenatis a orci ac malesuada. Vivamus ligula elit, viverra eu ante porttitor, blandit convallisLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed venenatis a orci ac malesuada. Vivamus ligula elit, viverra eu ante porttitor, blandit convallis"
+    description: ""
     
   - name: "YouTube Thumbnail Evaluator"
     git_url: "https://github.com/nalimuradov/thumbnail_evaluator"
