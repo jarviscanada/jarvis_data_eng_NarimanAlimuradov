@@ -1,6 +1,6 @@
 # Nariman Alimuradov . Jarvis Consulting
 
-Hello, I'm a recent graduate from McMaster University's software engineering program.
+Hi I'm Nariman, a graduate from McMaster University's software engineering program and I have recently joined Jarvis as a data engineer! During my undergrad, I spent eight months as a software developer for Adlib Software, where I designed document detection models on the machine learning team. I enjoy spending my free time volunteering. While at McMaster, I spent a year teaching workshop classes to students at elementary schools across Hamilton, and during the past six months, I have been volunteering as a crisis responder for the Kids Help Phone text line. I love programming and computer science because it is a language that can be applied to every facet of life. Software provides immeasurable benefits to everything in our lives and I think it's important to have a deep understanding of it.
 
 ## Skills
 
@@ -25,24 +25,25 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_NarimanAli
 
 
 ## Highlighted Projects
-**Subreddit Recommender** [[GitHub](https://github.com/nalimuradov/subreddit_recommender)]: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed venenatis a orci ac malesuada. Vivamus ligula elit, viverra eu ante porttitor, blandit convallisLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed venenatis a orci ac malesuada. Vivamus ligula elit, viverra eu ante porttitor, blandit convallisLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed venenatis a orci ac malesuada. Vivamus ligula elit, viverra eu ante porttitor, blandit convallis
+**Subreddit Recommender** [[GitHub](https://github.com/nalimuradov/subreddit_recommender)]: Built and cloud-hosted a Python recommendation model that uses the Reddit API to suggest new subreddits (online communities) to the user based on the subreddits they like. Reddit user activity is periodically aggregated to optimize and update the recommendations over time. Deployed using Flask and Heroku. Try it out at https://subreddits.nalimuradov.com.
 
-**YouTube Thumbnail Evaluator** [[GitHub](https://github.com/nalimuradov/thumbnail_evaluator)]: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed venenatis a orci ac malesuada. Vivamus ligula elit, viverra eu ante porttitor, blandit convallisLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed venenatis a orci ac malesuada. Vivamus ligula elit, viverra eu ante porttitor, blandit convallis Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed venenatis a orci ac malesuada. Vivamus ligula elit, viverra eu ante porttitor, blandit convallis
+**YouTube Thumbnail Evaluator** [[GitHub](https://github.com/nalimuradov/thumbnail_evaluator)]: Developed a Python machine learning application that estimates the viewership success of a YouTube video by analyzing the video title and thumbnail. NLTK and natural language processing heuristics are used to evaluate the video title, and Keras image recognition models are used to evaluate the thumbnail. Training data was web-scraped and fetched using the YouTube API. Deployed using Flask at https://thumbnail.nalimuradov.com.
 
-**Pokemon Team Generator** [[GitHub](https://github.com/nalimuradov/pokemon_team)]: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed venenatis a orci ac malesuada. Vivamus ligula elit, viverra eu ante porttitor, blandit convallisLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed venenatis a orci ac malesuada. Vivamus ligula elit, viverra eu ante porttitor, blandit convallis Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed venenatis a orci ac malesuada. Vivamus ligula elit, viverra eu ante porttitor, blandit convallis
+**Pokemon Team Generator** [[GitHub](https://github.com/nalimuradov/pokemon_team)]: Created a React web application that generates the user a team of six Pokemon based on their filters and criteria. All assets stored externally and fetched at runtime when required to allow for a lightweight design. Written in JavaScript, HTML, CSS, and deployed with the help of Heroku, Github, and Node.js. Available at https://pokemon.nalimuradov.com.
 
 
 ## Professional Experiences
 
-**Data Engineer, Jarvis (2020-present)**: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed venenatis a orci ac malesuada. Vivamus ligula elit, viverra eu ante porttitor, blandit convallis augue. Aliquam justo justo, mollis at lacus eu, rutrum finibus est. Vestibulum venenatis purus id accumsan pretium. In efficitur magna nec enim laoreet tincidunt. Ut libero metus, scelerisque nec eros vitae, sagittis pellentesque enim. Donec dictum felis volutpat, vehicula magna eu, imperdiet elit. Phasellus ut velit a massa efficitur faucibus. Sed volutpat, lacus sed sagittis luctus, elit.
+**Data Engineer, Jarvis (2020-present)**: Collaborated in a Scrum team within an Agile environment as a data engineer. Implemented software projects using a variety of technologies such as Linux, Java, SQL, Docker, Git, and GCP to familiarize with current market trends.
 
-**Software Developer, Adlib Software (2019)**: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed venenatis a orci ac malesuada. Vivamus ligula elit, viverra eu ante porttitor, blandit convallis augue. Aliquam justo justo, mollis at lacus eu, rutrum finibus est. Vestibulum venenatis purus id accumsan pretium. In efficitur magna nec enim laoreet tincidunt. Ut libero metus, scelerisque nec eros vitae, sagittis pellentesque enim. Donec dictum felis volutpat, vehicula magna eu, imperdiet elit. Phasellus ut velit a massa efficitur faucibus. Sed volutpat, lacus sed sagittis luctus, elit.
+**Software Developer, Adlib Software (2019)**: Worked as a software developer in an Agile environment on the machine learning team. Created an object detection neural net that locates signatures and handwriting on documents using Python and Keras, allowing clients to automatically validate their files in seconds. Implemented Python automation tools for testing NLP model accuracy. Integrated a C# speech-to-text model for client audio file conversion and meeting transcription.
 
 
 ## Education
 **McMaster University (2015-2020)**, Bachelor of Engineering, Software Engineering
-- GPA
+- GPA 3.2/4.0
 
 
 ## Miscellaneous
-- Volunteering
+- Workshop Teacher, McMaster’s Children and Youth University (2018-2019): Designed and taught a tech workshop class to students at elementary schools across Hamilton.
+- Crisis Text Responder, Kids Help Phone (2020-Present): Provided confidential support and further resources for young texters in distress.
