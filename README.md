@@ -1,21 +1,21 @@
 # Nariman Alimuradov . Jarvis Consulting
 
-Hi I'm Nariman, a graduate from McMaster University's software engineering program and I have recently joined Jarvis as a data engineer! During my undergrad, I spent eight months as a software developer for Adlib Software, where I designed document detection models on the machine learning team. I enjoy spending my free time volunteering. While at McMaster, I spent a year teaching workshop classes to students at elementary schools across Hamilton, and during the past six months, I have been volunteering as a crisis responder for the Kids Help Phone text line. I love programming and computer science because it is a language that can be applied to every facet of life. Software provides immeasurable benefits to everything in our lives and I think it's important to have a deep understanding of it.
+I am a graduate of McMaster University's software engineering program, and I have recently joined Jarvis as a software and data engineer. During my undergrad, I spent eight months as a software developer for Adlib Software, where I designed document detection models on the machine learning team. I enjoy spending my free time volunteering. While at McMaster, I spent a year teaching workshop classes to students at elementary schools across Hamilton. I have also been volunteering over the past six months as a crisis responder for the Kids Help Phone text line. I love programming and computer science because it is a language that can be applied to every facet of life. Software provides immeasurable benefits to everything in our lives, and it's critical to have a deep understanding of it.
 
 ## Skills
 
-**Proficient:** Python, Java, SQL, JavaScript, Git
+**Proficient:** Java, Python, SQL, JavaScript, Git, Agile/Scrum
 
-**Competent:** Linux/Bash, HTML/CSS, Flask, REST API, Keras
+**Competent:** Docker, Linux/Bash, HTML/CSS, Flask, Keras
 
-**Familiar:** React, Node.js, AWS, Android, Docker
+**Familiar:** React, Node.js, AWS, Android, REST API
 
 ## Jarvis Projects
 
 Project source code: [https://github.com/jarviscanada/jarvis_data_eng_NarimanAlimuradov](https://github.com/jarviscanada/jarvis_data_eng_NarimanAlimuradov)
 
 
-**Cluster Monitor** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_NarimanAlimuradov/tree/master/linux_sql)]: Developed a Linux monitoring agent that allows a user to monitor and store machine specifications and usage information for multiple Linux systems. The agent employs Bash Scripts to collect machine hardware information, which is then stored in a PostgreSQL database provisioned using Docker. Resource usage is fetched periodically with Crontab and the data aggregated can then be manipulated using SQL queries.
+**Cluster Monitor** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_NarimanAlimuradov/tree/master/linux_sql)]: Developed a Linux monitoring agent that allows a user to monitor and store machine specifications and usage information for multiple Linux systems. The agent employs Bash Scripts to collect machine hardware information, which is then stored in a PostgreSQL database provisioned using Docker. Resource usage is fetched periodically with Crontab, and the aggregated data can then be manipulated using SQL queries.
 
 **Core Java Apps** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_NarimanAlimuradov/tree/master/core_java)]:
       
@@ -29,14 +29,14 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_NarimanAli
 
 **YouTube Thumbnail Evaluator** [[GitHub](https://github.com/nalimuradov/thumbnail_evaluator)]: Developed a Python machine learning application that estimates the viewership success of a YouTube video by analyzing the video title and thumbnail. NLTK and natural language processing heuristics are used to evaluate the video title, and Keras image recognition models are used to evaluate the thumbnail. Training data was web-scraped and fetched using the YouTube API. Deployed using Flask at https://thumbnail.nalimuradov.com.
 
-**Pokemon Team Generator** [[GitHub](https://github.com/nalimuradov/pokemon_team)]: Created a React web application that generates the user a team of six Pokemon based on their filters and criteria. All assets stored externally and fetched at runtime when required to allow for a lightweight design. Written in JavaScript, HTML, CSS, and deployed with the help of Heroku, Github, and Node.js. Available at https://pokemon.nalimuradov.com.
+**Pokemon Team Generator** [[GitHub](https://github.com/nalimuradov/pokemon_team)]: Created a React web application that generates the user a team of six Pokemon based on their filters and criteria. All assets stored externally and fetched at runtime when required to allow for a lightweight design. Written in JavaScript, HTML, CSS. Deployed with the help of Heroku, Github, and Node.js. Available at https://pokemon.nalimuradov.com.
 
 
 ## Professional Experiences
 
-**Data Engineer, Jarvis (2020-present)**: Collaborated in a Scrum team within an Agile environment as a data engineer. Implemented software projects using a variety of technologies such as Linux, Java, SQL, Docker, Git, and GCP to familiarize with current market trends.
+**Data Engineer, Jarvis (2020-present)**: Collaborated in a Scrum team within an Agile environment as a data engineer. Implemented software projects using a variety of technologies such as Linux, Java, SQL, Docker, Git, and GCP to familiarize with current industry trends.
 
-**Software Developer, Adlib Software (2019)**: Worked as a software developer in an Agile environment on the machine learning team. Created an object detection neural net that locates signatures and handwriting on documents using Python and Keras, allowing clients to automatically validate their files in seconds. Implemented Python automation tools for testing NLP model accuracy. Integrated a C# speech-to-text model for client audio file conversion and meeting transcription.
+**Software Developer, Adlib Software (2019)**: Worked as a software developer in an Agile environment on the machine learning team. Created an object detection neural net that locates signatures and handwriting on documents using Python and Keras, allowing clients to automatically validate their files within seconds. Implemented Python automation tools for testing NLP model accuracy. Integrated a C# speech-to-text model for client audio file conversion and meeting transcription.
 
 
 ## Education
