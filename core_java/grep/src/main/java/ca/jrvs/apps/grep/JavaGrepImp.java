@@ -1,18 +1,20 @@
 package ca.jrvs.apps.grep;
 
 import org.apache.log4j.BasicConfigurator;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import java.io.*;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 
 public class JavaGrepImp implements JavaGrep {
 
-    Logger parentLogger = LogManager.getLogger(JavaGrep.class);
-    private Logger logger = parentLogger;
+    private static final Logger logger = LoggerFactory.getLogger(JavaGrep.class);
     private String regex;
     private String rootPath;
     private String outFile;
@@ -31,7 +33,7 @@ public class JavaGrepImp implements JavaGrep {
         try {
             javaGrepImp.process();
         } catch (Exception e) {
-            // logger.error(e.getMessage(), e);
+            logger.info(e.getMessage());
         }
     }
 
@@ -51,7 +53,8 @@ public class JavaGrepImp implements JavaGrep {
     @Override
     public List<File> listFiles(String rootDir) {
         List<File> validFiles = new ArrayList<File>();
-        File[] allFiles = new File(rootDir).listFiles();
+        File curDir = new File(rootDir);
+        File[] allFiles = curDir.listFiles();
         for (File f : allFiles) {
             if (f.isFile()){
                 validFiles.add(f);
@@ -78,7 +81,7 @@ public class JavaGrepImp implements JavaGrep {
     public void writeToFile(List<String> lines) throws IOException {
         BufferedWriter writer = new BufferedWriter(new FileWriter(rootPath + "/" + outFile));
         for (String line : lines) {
-            writer.write(line);
+            writer.write(line + "\n");
         }
         writer.close();
     }
