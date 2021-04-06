@@ -17,7 +17,7 @@ public interface JavaGrep {
      * @param rootDir input directory
      * @return list of files in the directory
      */
-    List<File> listFiles(String rootDir);
+    List<File> listFiles(String rootDir) throws IOException;
 
     /**
      * Read lines from a file
