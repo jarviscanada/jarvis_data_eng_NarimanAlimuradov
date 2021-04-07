@@ -55,6 +55,7 @@ Testing was performed manually on sample text files containing varying amounts o
 Below is an example of the results when we search for the word **Gutenberg** in a text file that contains all the works of Shakespeare in it: 
 
 ![Gutenberg Example](assets/gutenberg.png)
+> The word **Gutenberg** appears 14 times total. The full line containing the word is returned because the regex specified that.
 
 ## Deployment
 The app was deployed as a **DockerFile** on DockerHub. Maven was used to package the project and a Docker image was created locally with the help of the **Maven Shade plugin**, which packaged all the dependencies required to run it. 
