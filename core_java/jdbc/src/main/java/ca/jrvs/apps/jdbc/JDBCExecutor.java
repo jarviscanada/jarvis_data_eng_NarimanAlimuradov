@@ -10,11 +10,9 @@ public class JDBCExecutor {
         DatabaseConnectionManager dcm = new DatabaseConnectionManager("localhost", "jdbc_db", "postgres", "nariman");
         try {
             Connection connection = dcm.getConnection();
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT COUNT(*) FROM CUSTOMER");
-            while (resultSet.next()){
-                System.out.println(resultSet.getInt(1));
-            }
+            OrderDAO orderDAO = new OrderDAO(connection);
+            Order order = orderDAO.findById(1000);
+            System.out.println(order);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }

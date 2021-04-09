@@ -11,6 +11,7 @@ public class DatabaseConnectionManager {
 
     public DatabaseConnectionManager(String host, String dbName, String username, String password) {
         this.url = "jdbc:postgresql://" + host + "/" + dbName;
+        System.out.println(this.url);
         this.properties = new Properties();
         this.properties.setProperty("user", username);
         this.properties.setProperty("password", password);
