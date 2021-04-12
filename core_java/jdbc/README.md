@@ -10,7 +10,7 @@ contains generated sales order information. Packaged using **Maven**.
 ## The Data
 Several tables of sales information were generated to effectively run and test the application.
 
-**Products** are mapped to an **order item** which are ordered by the **customer** from the **salesperson**.
+**Products** are mapped to **order items** that are ordered by the **customer** from the **salesperson**.
 These **orders** have a **many-to-one** relationship with the customers, salespersons, and order items.
 
 ![ER Diagram](assets/er_diagram.png)
@@ -23,7 +23,7 @@ DAO designs consist of a base class that will have table properties, such as a n
 contain the CRUD (Create, Read, Update, Delete) operations.
 We can then implement that interface while using the base class properties.
 
-DAO provides a separation layer from the database, meaning we can switch from a PostgreSQL to a MySQL database with minimal changes. 
+DAO provides a layer of separation from the database, meaning we can switch from a PostgreSQL to a MySQL database with minimal changes. 
 DAO also works well with normalized data, as the table joins become much simpler.
 
 Another design we could have used is the **repository** pattern, where we focus on accessing only a single table per class.
@@ -34,7 +34,7 @@ us to shard the database so that if data is requested, we only fetch from the sh
 To start the app, a PostgreSQL server should be running so that the **JDBC executor** can establish a connection. From this point on,
 this connector can be used to create queries and fetch or modify the data.
 
-There are two key files that are heavily involved with operationality:
+Two key files are heavily involved with operationality:
 
 **JDBCExecutor.java**
 > Entry point of the JDBC app. Establishes the connection to the database. Implemented queries can be called here.
