@@ -2,10 +2,10 @@
 Nearly every application in this current age of software uses data stored in databases.
 While database languages such as SQL are great for modifying information, 
 it's often necessary to connect the data to a programming language such as Java or Python for 
-creating usable, deployable products.
+creating deployable products.
 
-This application uses JDBC to connect Java to a PostgreSQL database that 
-contains generated sales order information. Packaged using Maven.
+This application uses **JDBC** to connect **Java** to a **PostgreSQL** database that 
+contains generated sales order information. Packaged using **Maven**.
 
 ## The Data
 Several tables of sales information were generated to effectively run and test the application.
@@ -23,10 +23,10 @@ DAO designs consist of a base class that will have table properties, such as a n
 contain the CRUD (Create, Read, Update, Delete) operations.
 We can then implement that interface while using the base class properties.
 
-DAO provides a separation layer from the database, meaning we can change from a PostgreSQL to a MySQL database with minimal changes.
+DAO provides a separation layer from the database, meaning we can switch from a PostgreSQL to a MySQL database with minimal changes. 
 DAO also works well with normalized data, as the table joins become much simpler.
 
-An alternative we can use is the **repository** pattern, where we focus on accessing only a single table per class.
+Another design we could have used is the **repository** pattern, where we focus on accessing only a single table per class.
 Had the database been distributed, this pattern would have been a great alternative. The repository design would allow 
 us to shard the database so that if data is requested, we only fetch from the shards that have what we need.
 
@@ -46,6 +46,6 @@ All sorts of CRUD operations are functional, and additional ones can be easily i
 Below is an example of data pulled into Java from PostgreSQL.
 
 ![Sample Test Data](assets/sample_test_output.png)
-> Query results of three sales orders. Contains data such as customer and salesperson information.
+> Query results of three sales orders. Contains data such as customer name and email.
 
 Enjoy!
