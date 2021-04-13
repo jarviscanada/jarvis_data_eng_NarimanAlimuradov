@@ -1,6 +1,5 @@
 # Java Grep Tool
 
-## Introduction
 Filtering through text to find key words is time consuming, and it gets even more difficult if the files contain thousands of lines of text. The Java Grep Tool provides a simple way to allow a user to search through multiple files for lines containing specific words.
 
 Developed using **Java** with the **Maven** project management tool. Utilizes Java **streams** for efficiency and packaged using **Docker**.
