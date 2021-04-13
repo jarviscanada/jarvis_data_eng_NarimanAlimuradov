@@ -4,6 +4,9 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * https://www.notion.so/jarvisdev/Two-Sum-96d42651b2744eb884524db3d392b1c5
+ */
 public class TwoSum {
     /**
      * Brute force attempt where we double loop and find all pairs that sum to the target
@@ -18,6 +21,29 @@ public class TwoSum {
                 if (arr[i] + arr[j] == target){
                     return new int[]{i, j};
                 }
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Approach where we sort the array of integers and do a two pointer approach
+     * Sorting will be the bottleneck and make the runtime of this O(nlogn), where n is length of array
+     * @param arr array of integers
+     * @param target target integer to sum to
+     * @return the indices of the two values that sum to target, otherwise null
+     */
+    public static int[] twoSumSorted(int[] arr, int target){
+        Arrays.sort(arr);
+        int left = 0;
+        int right = arr.length - 1;
+        while (left < right){
+            if (arr[left] + arr[right] == target){
+                return new int[]{left, right};
+            } else if (arr[left] + arr[right] < target){
+                left += 1;
+            } else {
+                right += 1;
             }
         }
         return null;

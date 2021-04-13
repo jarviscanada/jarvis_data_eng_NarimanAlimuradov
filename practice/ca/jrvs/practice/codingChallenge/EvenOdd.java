@@ -1,5 +1,8 @@
 package ca.jrvs.practice.codingChallenge;
 
+/**
+ * https://www.notion.so/jarvisdev/Sample-Check-if-a-number-is-even-or-odd-be5b83685526446b86f865a498c0a085
+ */
 public class EvenOdd {
     /**
      * Uses modulo to find remainder of dividing by 2 (if it has a remainder, must be odd)
