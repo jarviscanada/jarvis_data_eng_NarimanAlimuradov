@@ -20,8 +20,8 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_NarimanAli
 **Core Java Apps** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_NarimanAlimuradov/tree/master/core_java)]:
       
   - Twitter App: Currently in progress!
-  - JDBC App: Currently in progress!
-  - Grep App: Currently in progress!
+  - JDBC App: Implemented a JDBC app that connects Java to a PostgreSQL database. Built using the Data Access Object (DAO) pattern and tested on generated SQL sales data. Made in Java with the Maven project management tool.
+  - Grep App: Deployed a Java application that can search through files in a folder and filter the content based on a regular expression, similar to the GREP command in Linux. Created using the Maven project management tool and utilizes Java 8 streams for memory efficiency. Packaged usind Docker and available on DockerHub.
 
 
 ## Highlighted Projects
