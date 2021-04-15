@@ -1,5 +1,8 @@
 package ca.jrvs.apps.grep;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -11,6 +14,8 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class JavaGrepLambdaImp extends JavaGrepImp {
+
+    private static final Logger logger = LoggerFactory.getLogger(JavaGrepImp.class);
 
     public static void main(String[] args) {
         if (args.length != 3) {
@@ -25,7 +30,7 @@ public class JavaGrepLambdaImp extends JavaGrepImp {
         try {
             javaGrepLambdaImp.process();
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error("Error during process execution: ", e);
         }
     }
 

@@ -33,7 +33,7 @@ public class JavaGrepImp implements JavaGrep {
         try {
             javaGrepImp.process();
         } catch (Exception e) {
-            logger.info(e.getMessage());
+            logger.info("Error during process execution: ", e);
         }
     }
 
