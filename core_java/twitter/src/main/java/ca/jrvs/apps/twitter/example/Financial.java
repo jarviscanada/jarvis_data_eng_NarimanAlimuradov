@@ -1,4 +1,4 @@
-package ca.jrvs.apps.twitter;
+package ca.jrvs.apps.twitter.example;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import java.math.BigInteger;
