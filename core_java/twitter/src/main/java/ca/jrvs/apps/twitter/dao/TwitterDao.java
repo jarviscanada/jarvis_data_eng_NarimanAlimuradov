@@ -40,18 +40,18 @@ public class TwitterDao implements CrdDao<Tweet, String> {
     @Override
     public Tweet create(Tweet entity) throws URISyntaxException, OAuthExpectationFailedException, OAuthCommunicationException, OAuthMessageSignerException, IOException {
         Coordinates coords = entity.getCoordinates();
+        PercentEscaper percentEscaper = new PercentEscaper("", false);
         if (coords != null){
             double longitude = coords.getCoordinates().get(0);
             double latitude = coords.getCoordinates().get(1);
-            URI uri = new URI(API_BASE_URI + POST_PATH + QUERY_SYM + "status" + EQUAL + entity.getText() +
+            URI uri = new URI(API_BASE_URI + POST_PATH + QUERY_SYM + "status" + EQUAL + percentEscaper.escape(entity.getText()) +
                     AMPERSAND + "long" + EQUAL + longitude + AMPERSAND + "lat" + EQUAL + latitude);
-            PercentEscaper percentEscaper = new PercentEscaper("", false);
             HttpResponse response = httpHelper.httpPost(uri);
             return parseResponse(response);
         }
 
         // If no coords provided, simply create tweet without them
-        URI uri = new URI(API_BASE_URI + POST_PATH + QUERY_SYM + "status" + EQUAL + entity.getText());
+        URI uri = new URI(API_BASE_URI + POST_PATH + QUERY_SYM + "status" + EQUAL + percentEscaper.escape(entity.getText()));
         HttpResponse response = httpHelper.httpPost(uri);
         return parseResponse(response);
     }
@@ -85,10 +85,10 @@ public class TwitterDao implements CrdDao<Tweet, String> {
      * @param response HttpResponse object
      * @return Parsed Tweet object
      */
-    private Tweet parseResponse(HttpResponse response) throws RuntimeException {
+    Tweet parseResponse(HttpResponse response) throws RuntimeException {
         // ensure the response succeeded
         if (response.getStatusLine().getStatusCode() != HTTP_OK){
-            throw new RuntimeException("Unsuccessful status code: " + response.getStatusLine().getStatusCode());
+            throw new RuntimeException("Unsuccessful API call - status code: " + response.getStatusLine().getStatusCode());
         }
 
         if (response.getEntity() == null){

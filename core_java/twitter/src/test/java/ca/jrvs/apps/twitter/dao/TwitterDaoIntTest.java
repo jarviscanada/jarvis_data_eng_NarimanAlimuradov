@@ -37,7 +37,6 @@ public class TwitterDaoIntTest {
         String sampleText = "sep2016";
         PercentEscaper percentEscaper = new PercentEscaper("", false);
         String escapedText = percentEscaper.escape(sampleText);
-        // Longitude and latitude must be between -90 and +90, otherwise will be ignored
         Double longitude = 30.1;
         Double latitude = 30.2;
         List<Double> coordList = new ArrayList<>();
