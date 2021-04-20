@@ -60,30 +60,30 @@ $ docker run nalimuradov/twitter delete 1383170143665192961,1382768599908110344
 
 The implementation consists of five main components. 
 
-**CLI App**
+**TwitterCLIApp.java**
 
-This file handles arguments and passes them on to the **controller**. It will then take the result and output it as JSON into the console. 
-Each dependency is created here, and the API key environment variables are sent to the HTTP helper.
+>This file handles arguments and passes them on to the **controller**. It will then take the result and output it as JSON into the console. 
+>Each dependency is created here, and the API key environment variables are sent to the HTTP helper.
 
-**Controller**
+**TwitterController.java**
 
-The controller parses the arguments and formats them for the **service**. Tweet objects are instantiated here
-that will be used to store and send data throughout the components. 
+>The controller parses the arguments and formats them for the **service**. Tweet objects are instantiated here
+>that will be used to store and send data throughout the components. 
 
-**Service**
+**TwitterService.java**
 
-The service checks the business logic and ensures the arguments are valid. 
-For example, we make sure that the Tweet is not over the character limit, and the coordinates are within range.
-It then sends the valid results to the **DAO**.
+>The service checks the business logic and ensures the arguments are valid. 
+>For example, we make sure that the Tweet is not over the character limit, and the coordinates are within range.
+>It then sends the valid results to the **DAO**.
 
-**DAO**
+**TwitterDao.java**
 
-The DAO will build the URI that will be used to make the HTTP request using the validated arguments. 
-This URI is then finally sent to the **HTTP helper**.
+>The DAO will build the URI that will be used to make the HTTP request using the validated arguments. 
+>This URI is then finally sent to the **HTTP helper**.
 
-**HTTP Helper**
+**TwitterHttpHelper**
 
-The HTTP helper will use the URI to execute the HTTP request to post, show, or delete a Tweet.
+>The HTTP helper will use the URI to execute the HTTP request to post, show, or delete a Tweet.
 
 ### Models
 In our DAO design, we create a **Tweet** object that is used to represent the Tweets we work with.
