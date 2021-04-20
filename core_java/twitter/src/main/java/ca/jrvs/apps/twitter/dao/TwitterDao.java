@@ -9,11 +9,14 @@ import oauth.signpost.exception.OAuthExpectationFailedException;
 import oauth.signpost.exception.OAuthMessageSignerException;
 import org.apache.http.HttpResponse;
 import org.apache.http.util.EntityUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 
+@Repository
 public class TwitterDao implements CrdDao<Tweet, String> {
     private static final String API_BASE_URI = "https://api.twitter.com";
     private static final String POST_PATH = "/1.1/statuses/update.json";
@@ -28,6 +31,7 @@ public class TwitterDao implements CrdDao<Tweet, String> {
 
     private HttpHelper httpHelper;
 
+    @Autowired
     public TwitterDao(HttpHelper httpHelper) {
         this.httpHelper = httpHelper;
     }

@@ -13,6 +13,8 @@ import ca.jrvs.apps.twitter.service.TwitterService;
 import oauth.signpost.exception.OAuthCommunicationException;
 import oauth.signpost.exception.OAuthExpectationFailedException;
 import oauth.signpost.exception.OAuthMessageSignerException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -20,6 +22,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 
+@Component
 public class TwitterCLIApp {
 
     private final static String CONSUMER_KEY = System.getenv("consumerKey");
@@ -28,6 +31,7 @@ public class TwitterCLIApp {
     private final static String TOKEN_SECRET = System.getenv("tokenSecret");
     private Controller controller;
 
+    @Autowired
     public TwitterCLIApp(Controller controller){
         this.controller = controller;
     }
