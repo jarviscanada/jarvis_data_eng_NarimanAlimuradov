@@ -1,11 +1,11 @@
 # Twitter API App
 The Twitter API app is a CLI tool that provides a way to use Twitter without accessing the website directly. 
-A user is able to perform basic functions such as posting tweets, reading tweets, and 
+A user can perform basic functions such as posting tweets, reading tweets, and 
 deleting tweets through the comfort of their command line.
 
 This **Java** application uses an **HTTP client** to call the **Twitter REST API**. 
 Structured using **Maven** and **Springboot** and implements a **Data Access Object** (DAO) design. 
-Deployed using on **Docker** and available on **DockerHub**.
+Deployed using **Docker** and available on **DockerHub**.
 
 ## How do I use it?
 First, pull the docker image from DockerHub:
@@ -40,13 +40,13 @@ which will allow us to filter our resulting output to only include the fields we
 ```
 $ docker run nalimuradov/twitter show 1383295895043600384 "created_at,text,retweet_count"
 ```
-> This will show a Tweet made by Elon Musk. The output will only include the date it was created at, 
+> This will show a Tweet made by Elon Musk. The output will only include the date it was created, 
 > the text content, and the retweet count, as per the fields.
 
 <br />
 
 **Deleting** a Tweet will require us to pass the Tweet ID as an argument. Multiple Tweets can be deleted at once by passing
-a comma separated sequence of Tweet IDs as the argument.
+a comma-separated sequence of Tweet IDs as the argument.
 
 ```
 $ docker run nalimuradov/twitter delete 1383170143665192961,1382768599908110344
@@ -111,9 +111,13 @@ Integration tests were also implemented to make sure the actual functionality of
 ![Post Twitter](assets/post_twitter.png)
 > A new Tweet with text "October" was created.
 
+<br />
+
 ### Example Show
 ![Show Console](assets/show.png)
 > The contents of the Elon Musk Tweet used in the usage example.
+
+<br />
 
 ### Example Delete
 ![Delete Console](assets/delete.png)
