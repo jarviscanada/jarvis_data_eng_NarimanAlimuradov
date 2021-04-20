@@ -81,7 +81,7 @@ The implementation consists of five main components.
 >The DAO will build the URI that will be used to make the HTTP request using the validated arguments. 
 >This URI is then finally sent to the **HTTP helper**.
 
-**TwitterHttpHelper**
+**TwitterHttpHelper.java**
 
 >The HTTP helper will use the URI to execute the HTTP request to post, show, or delete a Tweet.
 
