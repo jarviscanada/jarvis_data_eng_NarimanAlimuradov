@@ -2,10 +2,12 @@ package ca.jrvs.apps.twitter.model;
 
 import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.math.BigInteger;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Tweet {
     @JsonProperty("created_at")
@@ -27,16 +29,16 @@ public class Tweet {
     private Coordinates coordinates;
 
     @JsonProperty("retweet_count")
-    private int retweet_count;
+    private Integer retweet_count;
 
     @JsonProperty("favorite_count")
-    private int favorite_count;
+    private Integer favorite_count;
 
     @JsonProperty("favorited")
-    private boolean favorited;
+    private Boolean favorited;
 
     @JsonProperty("retweeted")
-    private boolean retweeted;
+    private Boolean retweeted;
 
     public String getCreated_at() {
         return created_at;
@@ -86,35 +88,35 @@ public class Tweet {
         this.coordinates = coordinates;
     }
 
-    public int getRetweet_count() {
+    public Integer getRetweet_count() {
         return retweet_count;
     }
 
-    public void setRetweet_count(int retweet_count) {
+    public void setRetweet_count(Integer retweet_count) {
         this.retweet_count = retweet_count;
     }
 
-    public int getFavorite_count() {
+    public Integer getFavorite_count() {
         return favorite_count;
     }
 
-    public void setFavorite_count(int favorite_count) {
+    public void setFavorite_count(Integer favorite_count) {
         this.favorite_count = favorite_count;
     }
 
-    public boolean isFavorited() {
+    public Boolean isFavorited() {
         return favorited;
     }
 
-    public void setFavorited(boolean favorited) {
+    public void setFavorited(Boolean favorited) {
         this.favorited = favorited;
     }
 
-    public boolean isRetweeted() {
+    public Boolean isRetweeted() {
         return retweeted;
     }
 
-    public void setRetweeted(boolean retweeted) {
+    public void setRetweeted(Boolean retweeted) {
         this.retweeted = retweeted;
     }
 }

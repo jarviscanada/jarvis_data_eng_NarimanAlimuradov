@@ -62,7 +62,39 @@ public class TwitterService implements Service{
                 }
             }
             Tweet tweet = (Tweet) dao.findById(id);
+            List<String> fieldsList = Arrays.asList(fields);
 
+
+            if (!fieldsList.contains("created_at")){
+                tweet.setCreated_at(null);
+            }
+            if (!fieldsList.contains("id")){
+                tweet.setId(null);
+            }
+            if (!fieldsList.contains("id_str")){
+                tweet.setId_str(null);
+            }
+            if (!fieldsList.contains("text")){
+                tweet.setText(null);
+            }
+            if (!fieldsList.contains("entities")){
+                tweet.setEntities(null);
+            }
+            if (!fieldsList.contains("coordinates")){
+                tweet.setCoordinates(null);
+            }
+            if (!fieldsList.contains("retweet_count")){
+                tweet.setRetweet_count(null);
+            }
+            if (!fieldsList.contains("favorite_count")){
+                tweet.setFavorite_count(null);
+            }
+            if (!fieldsList.contains("favorited")){
+                tweet.setFavorited(null);
+            }
+            if (!fieldsList.contains("retweeted")){
+                tweet.setRetweeted(null);
+            }
             return tweet;
         }
         return (Tweet) dao.findById(id);
