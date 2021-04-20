@@ -46,6 +46,9 @@ public class TwitterCLIApp {
     }
 
     public void run(String[] args) throws IOException, OAuthExpectationFailedException, OAuthCommunicationException, OAuthMessageSignerException, URISyntaxException {
+        if (args.length < 1){
+            throw new IllegalArgumentException("Please pass an argument: post | show | delete");
+        }
         String[] fieldArgs = new String[args.length - 1];
         System.arraycopy(args, 1, fieldArgs, 0, args.length - 1);
         Tweet tweet;
