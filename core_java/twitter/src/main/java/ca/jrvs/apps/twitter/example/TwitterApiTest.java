@@ -40,3 +40,9 @@ public class TwitterApiTest {
         System.out.println(EntityUtils.toString(response.getEntity()));
     }
 }
+//apikey apisecret bearertoken accesstoken tokensecret
+//BT0XIKu9fzhBtL1Ntwak8UPP3
+//faUoCH8kcb0NVNby5uhYdoX7qrz0O5PBatUcr6sR9E4fDKGibe
+//AAAAAAAAAAAAAAAAAAAAAOJuOAEAAAAAdSgAwjSgSDiNHjo8fvxAkZD%2B1r8%3D3oh3zU0lsCKravL1iq83sf2kas7bDJhR2kr2GYURgdxTSINBhf
+//780963541083889665-J0EgqrCq4ZLO8P5Y9YPdt2ySeJZRV3O
+//Q0tigGBr8JCSUdSCBrykpSu4cXjxNKRSKYo43j5oWqtcT
