@@ -8,8 +8,24 @@ import java.util.stream.IntStream;
  */
 public class MissingNumber {
 
+    /**
+     * Sum all values in the array and then subtract each value one by one
+     * If we reach zero, there is no missing number, otherwise the missing number will be the remainder
+     * Runtime will be O(N) where N is the length of the array
+     * @param nums array of integers
+     * @return the missing integer in the array
+     */
     public static int sum(int[] nums){
-        return -1;
+        int sum = 0;
+        int max = Integer.MIN_VALUE;
+        for (int num : nums){
+            sum += num;
+            max = Math.max(max, num);
+        }
+        for (int i = max; i > 0; i--){
+            sum -= i;
+        }
+        return sum * -1;
     }
 
     /**
@@ -29,7 +45,7 @@ public class MissingNumber {
                 return i;
             }
         }
-        return -1;
+        return 0;
     }
 
     /**
