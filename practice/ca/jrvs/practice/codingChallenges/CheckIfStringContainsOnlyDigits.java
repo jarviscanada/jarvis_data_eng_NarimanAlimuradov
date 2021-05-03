@@ -1,4 +1,4 @@
-package ca.jrvs.practice.codingChallenge;
+package ca.jrvs.practice.codingChallenges;
 
 /**
  * https://www.notion.so/jarvisdev/Check-if-a-String-contains-only-digits-1e795508d2344e7f892692ca43b69b5b

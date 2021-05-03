@@ -1,4 +1,4 @@
-package ca.jrvs.practice.codingChallenge;
+package ca.jrvs.practice.codingChallenges;
 
 /**
  * https://www.notion.so/jarvisdev/Nth-Node-From-End-of-LinkedList-657366cc88604123a2e2b3be33b26aa0

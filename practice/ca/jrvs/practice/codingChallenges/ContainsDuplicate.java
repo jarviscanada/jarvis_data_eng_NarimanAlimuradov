@@ -1,4 +1,4 @@
-package ca.jrvs.practice.codingChallenge;
+package ca.jrvs.practice.codingChallenges;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -36,7 +36,7 @@ public class ContainsDuplicate {
         for (int num : nums){
             mySet.add(num);
         }
-        if (mySet.size() == nums.length){
+        if (mySet.size() != nums.length){
             return true;
         }
         return false;

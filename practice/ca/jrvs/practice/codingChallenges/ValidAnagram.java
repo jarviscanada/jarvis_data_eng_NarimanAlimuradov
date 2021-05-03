@@ -1,4 +1,4 @@
-package ca.jrvs.practice.codingChallenge;
+package ca.jrvs.practice.codingChallenges;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -9,7 +9,7 @@ import java.util.HashMap;
 public class ValidAnagram {
 
     /**
-     * Finds whether two strings are anagrams by sorting the string characters and comparing the result
+     * Finds whether two strings are anagr ams by sorting the string characters and comparing the result
      * Runtime will be O(NlogN) as it is bottlenecked by the two sorts
      * @param text1 the first string
      * @param text2 the second string

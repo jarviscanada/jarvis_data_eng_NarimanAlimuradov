@@ -1,4 +1,4 @@
-package ca.jrvs.practice.codingChallenge;
+package ca.jrvs.practice.codingChallenges;
 
 /**
  * https://www.notion.so/jarvisdev/LinkedList-Cycle-e2a79f1ccaa044cca9a0a22ad5e2ee25

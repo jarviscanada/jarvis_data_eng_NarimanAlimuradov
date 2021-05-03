@@ -1,4 +1,4 @@
-package ca.jrvs.practice.codingChallenge;
+package ca.jrvs.practice.codingChallenges;
 
 /**
  * https://www.notion.so/jarvisdev/Fibonacci-Number-Climbing-Stairs-3d05d38c72e94db2b8c7706e17d014b2
