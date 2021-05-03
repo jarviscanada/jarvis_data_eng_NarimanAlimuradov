@@ -46,5 +46,4 @@ public class MergeSortedArray {
         return merged;
     }
 
-
 }

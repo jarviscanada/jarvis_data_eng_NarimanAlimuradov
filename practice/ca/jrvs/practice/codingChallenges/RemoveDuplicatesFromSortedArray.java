@@ -6,11 +6,10 @@ package ca.jrvs.practice.codingChallenges;
 public class RemoveDuplicatesFromSortedArray {
 
     /**
-     * Oddly worded question in LeetCode - need to modify the array indices and return number of unique integers
+     * Need to modify the array indices and return the number of unique integers
      * Essentially it's asking for a way of returning unique values without allocating extra space
      * Can use pointers to track where the duplicates are and where they need to be moved to for in-place modification
      * Solution will take O(N) runtime because of the pointers
-     * The LeetCode description asks to return the number of unique values
      * @param nums array of integers
      * @return number of unique values
      */

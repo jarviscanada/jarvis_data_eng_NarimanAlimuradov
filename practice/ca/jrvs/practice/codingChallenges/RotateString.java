@@ -6,7 +6,7 @@ package ca.jrvs.practice.codingChallenges;
 public class RotateString {
 
     /**
-     * Clever solution that appends two copies of the first string together to check if the second appears in it
+     * Appends two copies of the first string together to check if the second appears in it
      * Runtime will be O(N^2) where N is the length of both strings because of the .contains() method
      * @param text1 input string
      * @param text2 input string

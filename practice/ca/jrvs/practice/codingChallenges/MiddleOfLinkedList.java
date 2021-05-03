@@ -4,6 +4,7 @@ package ca.jrvs.practice.codingChallenges;
  * https://www.notion.so/jarvisdev/Middle-of-the-Linked-List-ea68dec0a2b74735b72a254f1b219e08
  */
 public class MiddleOfLinkedList {
+
     static class Node<E> {
         E data;
         Node next;

@@ -7,11 +7,6 @@ import java.util.stream.IntStream;
  * https://www.notion.so/jarvisdev/Missing-Number-2173d39c10644d969907a4e258b93556
  */
 public class MissingNumber {
-    public static void main(String[] args) {
-
-        int[] nums = {5, 2, 1, 0, 4};
-        System.out.println(gauss(nums));
-    }
 
     public static int sum(int[] nums){
         return -1;
