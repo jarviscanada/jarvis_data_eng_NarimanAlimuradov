@@ -1,4 +1,4 @@
-package ca.jrvs.practice.codingChallenge;
+package ca.jrvs.practice.codingChallenges;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -51,7 +51,7 @@ public class TwoSum {
 
     /**
      * More efficient solution that uses a map to store values we already visited
-     * This way, we can check if the difference of the target and value were at has already been seen
+     * This way, we can check if the difference of the target and value we're at has already been seen
      * Runtime will be O(n) where n is the length of the array, as we only do one pass through
      * @param arr array of integers
      * @param target target value to sum to

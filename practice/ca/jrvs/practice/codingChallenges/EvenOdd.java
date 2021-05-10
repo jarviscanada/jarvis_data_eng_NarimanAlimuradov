@@ -1,4 +1,4 @@
-package ca.jrvs.practice.codingChallenge;
+package ca.jrvs.practice.codingChallenges;
 
 /**
  * https://www.notion.so/jarvisdev/Sample-Check-if-a-number-is-even-or-odd-be5b83685526446b86f865a498c0a085
