@@ -1,8 +1,9 @@
 package ca.jrvs.apps.trading.dao;
 
 import ca.jrvs.apps.trading.TestConfig;
+import ca.jrvs.apps.trading.model.domain.Account;
+import ca.jrvs.apps.trading.model.domain.Position;
 import ca.jrvs.apps.trading.model.domain.Trader;
-import org.assertj.core.util.Lists;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,35 +13,51 @@ import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.text.DateFormat;
-import java.util.Arrays;
-import java.util.List;
 
 import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = {TestConfig.class})
 @Sql({"classpath:schema.sql"})
-public class TraderDaoIntTest {
+public class PositionDaoIntTest {
 
     @Autowired
-    private TraderDao traderDao;
+    PositionDao positionDao;
+    @Autowired
+    AccountDao accountDao;
+    @Autowired
+    TraderDao traderDao;
 
+    private Position position;
+    private Account account;
     private Trader trader;
 
     @Before
     public void setUp() throws Exception {
-        trader = new Trader();
+        traderDao.deleteAll();
+        accountDao.deleteAll();
+        positionDao.deleteAll();
 
+        trader = new Trader();
         trader.setFirstname("Nariman");
         trader.setLastname("Alimuradov");
         trader.setEmail("nariman@email.com");
         trader.setDate(DateFormat.getDateInstance().parse("2021-05-19"));
         trader.setCountry("Canada");
+
+        account = new Account();
+        account.setAmount(15.5);
+        account.setTraderId(trader.getId());
+
+        position = new Position();
+        position.setPosition(1);
+        position.setTicker("aapl");
+        position.setAccountId(account.getId());
     }
 
-    public void findAllById(){
-        List<Trader> traders = Lists.newArrayList(traderDao.findAllById(Arrays.asList(trader.getId() - 1)));
-        assertEquals(traders.size(), 1);
-        assertEquals(trader.getCountry(), traders.get(0).getCountry());
+    @Test
+    public void findByAccountId() {
+        Position myPosition = positionDao.findByAccountId(account.getId()).get();
+        assertEquals(myPosition.getTicker(), "aapl");
     }
 }

@@ -96,10 +96,6 @@ public class MarketDataDao implements CrudRepository<IexQuote, String> {
         return HttpClients.custom().setConnectionManager(httpClientConnectionManager).setConnectionManagerShared(true).build();
     }
 
-
-
-
-
     @Override
     public boolean existsById(String s) {
         throw new UnsupportedOperationException("Not implemented");

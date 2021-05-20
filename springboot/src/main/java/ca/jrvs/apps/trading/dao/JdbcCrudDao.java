@@ -1,6 +1,7 @@
 package ca.jrvs.apps.trading.dao;
 
 import ca.jrvs.apps.trading.model.domain.Entity;
+import ca.jrvs.apps.trading.model.domain.Quote;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.dao.DataRetrievalFailureException;
@@ -13,6 +14,8 @@ import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 public abstract class JdbcCrudDao<T extends Entity<Integer>> implements CrudRepository<T, Integer> {
@@ -46,7 +49,7 @@ public abstract class JdbcCrudDao<T extends Entity<Integer>> implements CrudRepo
 
     @Override
     public <S extends T> Iterable<S> saveAll(Iterable<S> iterable) {
-        return null;
+        throw new UnsupportedOperationException("Not implemented");
     }
 
     @Override
@@ -55,7 +58,7 @@ public abstract class JdbcCrudDao<T extends Entity<Integer>> implements CrudRepo
         String selectSql = "SELECT * FROM " + getTableName() + " WHERE " + getIdColumnName() + "=?";
         try {
             entity = Optional.ofNullable((T) getJdbcTemplate()
-                    .queryForObject(selectSql, BeanPropertyRowMapper.newInstance(getEntityClass()), id);
+                    .queryForObject(selectSql, BeanPropertyRowMapper.newInstance(getEntityClass()), id));
         } catch (IncorrectResultSizeDataAccessException e){
             logger.debug("Can't find trader id: " + id, e);
         }
@@ -63,42 +66,55 @@ public abstract class JdbcCrudDao<T extends Entity<Integer>> implements CrudRepo
     }
 
     @Override
-    public boolean existsById(Integer integer) {
+    public boolean existsById(Integer id) {
+        if (findById(id).isPresent()){
+            return true;
+        }
         return false;
     }
 
     @Override
     public Iterable<T> findAll() {
-        return null;
+        String query = "SELECT * FROM " + getTableName();
+        return getJdbcTemplate().query(query, BeanPropertyRowMapper.newInstance(getEntityClass()));
     }
 
     @Override
-    public Iterable<T> findAllById(Iterable<Integer> iterable) {
-        return null;
+    public Iterable<T> findAllById(Iterable<Integer> ids) {
+        List<T> queries = new ArrayList<>();
+        for (int id : ids){
+            Optional<T> item = findById(id);
+            queries.add(item.get());
+        }
+        return queries;
     }
 
     @Override
     public long count() {
-        return 0;
+        String query = "SELECT COUNT(*) FROM " + getTableName();
+        long count = getJdbcTemplate().queryForObject(query, long.class);
+        return count;
     }
 
     @Override
-    public void deleteById(Integer integer) {
-
+    public void deleteById(Integer id) {
+        String query = "DELETE FROM " + getTableName() + " WHERE " + getIdColumnName() + "=?";
+        getJdbcTemplate().update(query, id);
     }
 
     @Override
     public void delete(T t) {
-
+        throw new UnsupportedOperationException("Not implemented");
     }
 
     @Override
     public void deleteAll(Iterable<? extends T> iterable) {
-
+        throw new UnsupportedOperationException("Not implemented");
     }
 
     @Override
     public void deleteAll() {
-
+        String query = "DELETE FROM " + getTableName();
+        getJdbcTemplate().update(query);
     }
 }
