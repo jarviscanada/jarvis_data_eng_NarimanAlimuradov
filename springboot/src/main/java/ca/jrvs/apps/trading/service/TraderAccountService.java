@@ -40,6 +40,7 @@ public class TraderAccountService {
         account.setTraderId(trader.getId());
         account.setId(trader.getId());
         account.setAmount((double) 0);
+        accountDao.save(account);
 
         return new TraderAccountView(trader, account);
     }
@@ -54,8 +55,8 @@ public class TraderAccountService {
             throw new IllegalArgumentException("Non zero balance, unable to delete");
         }
 
-        if (!positionDao.findByAccountId(account.getId()).isPresent()) {
-            throw new IllegalArgumentException("Position does not exist");
+        if (positionDao.findById(account.getId()).isPresent()) {
+            throw new IllegalArgumentException("Account has open position");
         }
 
         securityOrderDao.deleteByAccountId(account.getId());

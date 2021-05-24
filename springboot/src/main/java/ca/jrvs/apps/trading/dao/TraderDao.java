@@ -1,5 +1,6 @@
 package ca.jrvs.apps.trading.dao;
 
+import ca.jrvs.apps.trading.model.domain.Account;
 import ca.jrvs.apps.trading.model.domain.Trader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,7 +25,6 @@ public class TraderDao extends JdbcCrudDao<Trader>{
     public TraderDao(DataSource dataSource){
         this.jdbcTemplate = new JdbcTemplate(dataSource);
         this.simpleJdbcInsert = new SimpleJdbcInsert(dataSource).withTableName(TABLE_NAME).usingGeneratedKeyColumns(ID_COLUMN);
-
     }
 
     @Override
@@ -53,7 +53,8 @@ public class TraderDao extends JdbcCrudDao<Trader>{
     }
 
     @Override
-    public int updateOne(Trader entity) {
-        throw new UnsupportedOperationException("Not implemented");
+    public int updateOne(Trader trader) {
+        String updateSql = "UPDATE " + getTableName() + " SET first_name=?, last_name=?, dob=?, country=?, email=? WHERE " + getIdColumnName() + "=?";
+        return jdbcTemplate.update(updateSql, trader.getFirstName(), trader.getLastName(), trader.getDob(), trader.getCountry(), trader.getEmail(), trader.getId());
     }
 }

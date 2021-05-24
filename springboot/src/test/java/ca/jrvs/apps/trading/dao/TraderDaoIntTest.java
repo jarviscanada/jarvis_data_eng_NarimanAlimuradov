@@ -13,6 +13,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.text.DateFormat;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -29,17 +30,20 @@ public class TraderDaoIntTest {
 
     @Before
     public void setUp() throws Exception {
+        traderDao.deleteAll();
         trader = new Trader();
 
-        trader.setFirstname("Nariman");
-        trader.setLastname("Alimuradov");
+        trader.setFirstName("Nariman");
+        trader.setLastName("Alimuradov");
         trader.setEmail("nariman@email.com");
-        trader.setDate(DateFormat.getDateInstance().parse("2021-05-19"));
+        trader.setDob(new Date(2021, 5, 19));
         trader.setCountry("Canada");
+        traderDao.save(trader);
     }
 
+    @Test
     public void findAllById(){
-        List<Trader> traders = Lists.newArrayList(traderDao.findAllById(Arrays.asList(trader.getId() - 1)));
+        List<Trader> traders = Lists.newArrayList(traderDao.findAllById(Arrays.asList(trader.getId())));
         assertEquals(traders.size(), 1);
         assertEquals(trader.getCountry(), traders.get(0).getCountry());
     }

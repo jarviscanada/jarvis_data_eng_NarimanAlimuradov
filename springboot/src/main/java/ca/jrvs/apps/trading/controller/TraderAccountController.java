@@ -37,11 +37,11 @@ public class TraderAccountController {
                                           @PathVariable String email) {
         try {
             Trader trader = new Trader();
-            trader.setFirstname(firstname);
-            trader.setLastname(lastname);
+            trader.setFirstName(firstname);
+            trader.setLastName(lastname);
             trader.setCountry(country);
             trader.setEmail(email);
-            trader.setDate(Date.valueOf(dob));
+            trader.setDob(Date.valueOf(dob));
             return traderAccountService.createTraderAndAccount(trader);
         } catch (Exception e){
             throw ResponseExceptionUtil.getResponseStatusException(e);

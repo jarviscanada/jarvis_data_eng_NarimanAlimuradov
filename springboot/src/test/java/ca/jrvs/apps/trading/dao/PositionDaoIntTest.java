@@ -1,9 +1,7 @@
 package ca.jrvs.apps.trading.dao;
 
 import ca.jrvs.apps.trading.TestConfig;
-import ca.jrvs.apps.trading.model.domain.Account;
-import ca.jrvs.apps.trading.model.domain.Position;
-import ca.jrvs.apps.trading.model.domain.Trader;
+import ca.jrvs.apps.trading.model.domain.*;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,6 +11,8 @@ import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.text.DateFormat;
+import java.util.Date;
+import java.util.Optional;
 
 import static org.junit.Assert.*;
 
@@ -22,42 +22,63 @@ import static org.junit.Assert.*;
 public class PositionDaoIntTest {
 
     @Autowired
+    QuoteDao quoteDao;
+    @Autowired
     PositionDao positionDao;
     @Autowired
     AccountDao accountDao;
     @Autowired
     TraderDao traderDao;
+    @Autowired
+    SecurityOrderDao securityOrderDao;
 
-    private Position position;
+    private Quote quote;
     private Account account;
     private Trader trader;
+    private SecurityOrder securityOrder;
 
     @Before
     public void setUp() throws Exception {
         traderDao.deleteAll();
         accountDao.deleteAll();
-        positionDao.deleteAll();
+        securityOrderDao.deleteAll();
+        quoteDao.deleteAll();
+
+        quote = new Quote();
+        quote.setAskPrice(1000.0);
+        quote.setAskSize(10);
+        quote.setBidPrice(10.0);
+        quote.setBidSize(11);
+        quote.setId("aapl");
+        quote.setLastPrice(20.0);
+        quoteDao.save(quote);
 
         trader = new Trader();
-        trader.setFirstname("Nariman");
-        trader.setLastname("Alimuradov");
+        trader.setFirstName("Nariman");
+        trader.setLastName("Alimuradov");
         trader.setEmail("nariman@email.com");
-        trader.setDate(DateFormat.getDateInstance().parse("2021-05-19"));
+        trader.setDob(new Date(2021, 5, 19));
         trader.setCountry("Canada");
+        traderDao.save(trader);
 
         account = new Account();
         account.setAmount(15.5);
         account.setTraderId(trader.getId());
+        accountDao.save(account);
 
-        position = new Position();
-        position.setPosition(1);
-        position.setTicker("aapl");
-        position.setAccountId(account.getId());
+        securityOrder = new SecurityOrder();
+        securityOrder.setNotes("my notes");
+        securityOrder.setPrice(33.3);
+        securityOrder.setSize(1);
+        securityOrder.setTicker(quote.getTicker());
+        securityOrder.setStatus(new String[]{"ok"});
+        securityOrder.setAccountId(account.getId());
+        securityOrderDao.save(securityOrder);
     }
 
     @Test
-    public void findByAccountId() {
-        Position myPosition = positionDao.findByAccountId(account.getId()).get();
-        assertEquals(myPosition.getTicker(), "aapl");
+    public void findById() {
+        Optional<Position> position = positionDao.findById(account.getId());
+        assertEquals(position.get().getAccountId(), account.getId());
     }
 }

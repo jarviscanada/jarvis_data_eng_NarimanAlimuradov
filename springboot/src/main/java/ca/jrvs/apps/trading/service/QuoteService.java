@@ -18,7 +18,6 @@ public class QuoteService {
 
     private QuoteDao quoteDao;
     private MarketDataDao marketDataDao;
-    private static final Logger logger = LoggerFactory.getLogger(QuoteService.class);
 
     @Autowired
     public QuoteService(QuoteDao quoteDao, MarketDataDao marketDataDao){
@@ -27,7 +26,6 @@ public class QuoteService {
     }
 
     public IexQuote findIexQuoteByTicker(String ticker){
-        System.out.println(ticker);
         return marketDataDao.findById(ticker).orElseThrow(() -> new IllegalArgumentException(ticker + " is invalid"));
     }
 
@@ -39,7 +37,6 @@ public class QuoteService {
             Quote resultQuote = buildQuoteFromIexQuote(iexQuote);
             quoteDao.save(resultQuote);
         }
-
     }
 
     protected static Quote buildQuoteFromIexQuote(IexQuote iexQuote){

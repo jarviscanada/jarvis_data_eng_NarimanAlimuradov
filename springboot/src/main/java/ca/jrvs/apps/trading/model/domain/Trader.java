@@ -6,11 +6,11 @@ import java.util.Date;
 public class Trader implements Entity<Integer> {
 
     private int id;
-    private String firstname;
-    private String lastname;
+    private String first_name;
+    private String last_name;
     private String country;
     private String email;
-    private Date date;
+    private Date dob;
 
     @Override
     public Integer getId() {
@@ -22,20 +22,20 @@ public class Trader implements Entity<Integer> {
         this.id = integer;
     }
 
-    public String getFirstname(){
-        return this.firstname;
+    public String getFirstName(){
+        return this.first_name;
     }
 
-    public void setFirstname(String name){
-        this.firstname = name;
+    public void setFirstName(String name){
+        this.first_name = name;
     }
 
-    public String getLastname(){
-        return this.lastname;
+    public String getLastName(){
+        return this.last_name;
     }
 
-    public void setLastname(String name){
-        this.lastname = name;
+    public void setLastName(String name){
+        this.last_name = name;
     }
 
     public String getCountry(){
@@ -54,11 +54,11 @@ public class Trader implements Entity<Integer> {
         this.email = email;
     }
 
-    public Date getDate(){
-        return this.date;
+    public Date getDob(){
+        return this.dob;
     }
 
-    public void setDate(Date date){
-        this.date = date;
+    public void setDob(Date dob){
+        this.dob = dob;
     }
 }

@@ -106,7 +106,7 @@ public class QuoteDaoIntTest {
     @Test
     public void existsById() {
         assertFalse(quoteDao.existsById("aaaapl"));
-        //assertTrue(quoteDao.existsById("aapl"));
+        assertTrue(quoteDao.existsById("aapl"));
     }
 
     @Test

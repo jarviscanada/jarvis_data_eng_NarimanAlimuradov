@@ -1,32 +1,20 @@
 package ca.jrvs.apps.trading.model.domain;
 
-public class Position implements Entity<Integer> {
+public class Position {
 
-    private int accountId;
+    private Integer account_id;
     private String ticker;
-    private int position;
+    private Integer position;
 
-    public int getAccountId() {
-        return accountId;
-    }
-
-    public void setAccountId(int accountId) {
-        this.accountId = accountId;
+    public Integer getAccountId() {
+        return this.account_id;
     }
 
     public String getTicker() {
         return ticker;
     }
 
-    public void setTicker(String size) {
-        this.ticker = size;
-    }
-
-    public int getPosition() {
+    public Integer getPosition() {
         return position;
-    }
-
-    public void setPosition(int position) {
-        this.position = position;
     }
 }
