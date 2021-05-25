@@ -1,9 +1,9 @@
 # Trading REST API
 
-* [How to Use](##How do I use it?)
-* [Implementation](##Implementation)
-* [Deployment and Testing](##Deployment and Testing)
-* [Further Improvements](##Further Improvements)
+* [How to Use](#how-do-i-use-it?)
+* [Implementation](#implementation)
+* [Deployment and Testing](#deployment-and-testing)
+* [Further Improvements](#further-improvements)
 
 Jarvis wishes to update their old and monolithic trading system with a newer one.
 This trading REST API provides a PoC with a microservice architecture that will make it easier to scale in the future.
@@ -115,11 +115,12 @@ as well as withdraw or deposit money from an account.
 The controllers, services, and DAOs were integration tested using JUnit 4, and met the acceptable benchmark of 60% code coverage.
 Thanks to Spring, we can autowire necessary classes for our tests so that we can test each layer of the DAO for functionality.
 
-How did you test your application? Did you use any testing libraries? What's the code coverage?
+![Docker](assets/docker.png)
+> Docker architecture.
 
-- docker diagram including images, containers, network, and docker hub
-  e.g. https://www.notion.so/jarviscanada/Dockerize-Trading-App-fc8c8f4167ad46089099fd0d31e3855d#6f8912f9438e4e61b91fe57f8ef896e0
-- describe each image in details (e.g. how psql initialize tables)
+We deployed our Docker images to DockerHub, allowing for anyone to pull them. 
+The PSQL image uses the PostgreSQL base image, while the main application image uses the JDK 8 Alpine base image.
+We then build our two respective containers, and connect them through our Docker network.
 
 ## Further Improvements
 
@@ -129,8 +130,9 @@ How did you test your application? Did you use any testing libraries? What's the
       For example, we can include endpoints that deal with the dashboard and orders directly.
       
 
-* **Improvement 2**
-    * While
+* **Alternate stock exchanges**
+    * A nice improvement that would also help with testing the PoC would be to utilize different stock exchanges such as NASDAQ or NYSE.
+  Having a wider selection of exchanges will provide value to a greater range of potential users.
 
 
 * **Startup script**
