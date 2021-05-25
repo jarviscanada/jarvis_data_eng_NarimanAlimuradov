@@ -15,9 +15,6 @@ import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfigurat
 @SpringBootApplication(exclude = {JdbcTemplateAutoConfiguration.class, DataSourceAutoConfiguration.class, HibernateJpaAutoConfiguration.class})
 public class Application implements CommandLineRunner {
 
-  @Value("${app.init.dailyList}")
-  private String[] initDailyList;
-
   @Autowired
   private QuoteService quoteService;
 
