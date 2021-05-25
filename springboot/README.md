@@ -1,9 +1,9 @@
 # Trading REST API
 
-* [How to Use](#How do I use it?)
-* [Implementation](#Implementation)
-* [Deployment and Testing](#Deployment and Testing)
-* [Further Improvements](#Further Improvements)
+* [How to Use](##How do I use it?)
+* [Implementation](##Implementation)
+* [Deployment and Testing](##Deployment and Testing)
+* [Further Improvements](##Further Improvements)
 
 Jarvis wishes to update their old and monolithic trading system with a newer one.
 This trading REST API provides a PoC with a microservice architecture that will make it easier to scale in the future.
@@ -20,7 +20,8 @@ First, create a Docker network so that our containers can communicate.
 ```
 $ sudo docker network create trading-net
 ```
-Next, pull our database and application Docker images from DockerHub:
+
+Next, pull the database and application Docker images from DockerHub:
 ```
 $ docker pull nalimuradov/trading-psql
 $ docker pull nalimuradov/trading-app
@@ -38,7 +39,7 @@ $ docker run \
   
 $ docker run \
   --name trading-app-dev \
-  -e "PSQL_URL=jdbc:postgresql://trading-psql-dev:5432/jrvstrading" \
+  -e "PSQL_URL=jdbc:postgresql://trading-psql-dev:5432/YOUR_DATABASE" \
   -e "PSQL_USER=YOUR_USERNAME" \
   -e "PSQL_PASSWORD=YOUR_PASSWORD" \
   -e "IEX_PUB_TOKEN=YOUR_IEX_PUB_TOKEN" \
@@ -55,7 +56,7 @@ http://localhost:8080/swagger-ui.html
 ```
 
 ![UML Diagram](assets/swagger.png)
-> Our REST API using SwaggerUI.
+> Our REST API shown with the help of SwaggerUI.
 
 
 ## Implemenation
@@ -102,7 +103,7 @@ The trader controller manages trader and account information on the platform. It
 as well as withdraw or deposit money from an account.
 
   | Endpoint  | Usage |
-    | ------------- | ------------- |
+  | ------------- | ------------- |
   | **DELETE** ```/trader/traderId/{traderId}``` | Delete a trader with a given trader ID. |
   | **POST** ```/trader``` | Create a trader. |
   | **POST** ```/trader/firstname/{firstname}/lastname/{lastname}/dob/{dob}/country/{country}/email/{email}``` | Create a trader with specific characteristics. |
