@@ -1,6 +1,6 @@
 # Trading REST API
 
-* [How to Use](#how-do-i-use-it?)
+* [How to Use](#how-to-use)
 * [Implementation](#implementation)
 * [Deployment and Testing](#deployment-and-testing)
 * [Further Improvements](#further-improvements)
@@ -12,7 +12,7 @@ The API allows users to manage trading clients and accounts, as well as pull and
 Created in **Java** using the **Spring** framework and **Maven** packaging tool. 
 **SQL** scripts are used to initialize the database. Deployed using **Docker**.
 
-## How do I use it?
+## How to Use
 
 Before using the application, ensure **Docker** is installed. A **CentOS 7** Linux VM is recommended to ensure compatibility.
 
@@ -59,7 +59,7 @@ http://localhost:8080/swagger-ui.html
 > Our REST API shown with the help of SwaggerUI.
 
 
-## Implemenation
+## Implementation
 
 ### Architecture
 
