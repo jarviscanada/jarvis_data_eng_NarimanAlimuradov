@@ -1,9 +1,9 @@
 # Trading REST API
 
-* [How to Use](##How do I use it?)
-* [Implementation](##Implementation)
-* [Deployment and Testing](##Deployment and Testing)
-* [Further Improvements](##Further Improvements)
+* [How to Use](#how-to-use)
+* [Implementation](#implementation)
+* [Deployment and Testing](#deployment-and-testing)
+* [Further Improvements](#further-improvements)
 
 Jarvis wishes to update their old and monolithic trading system with a newer one.
 This trading REST API provides a PoC with a microservice architecture that will make it easier to scale in the future.
@@ -12,9 +12,9 @@ The API allows users to manage trading clients and accounts, as well as pull and
 Created in **Java** using the **Spring** framework and **Maven** packaging tool. 
 **SQL** scripts are used to initialize the database. Deployed using **Docker**.
 
-## How do I use it?
+## How to Use
 
-Prior to using the application, ensure **Docker** is installed. A **CentOS 7** Linux VM is recommended to ensure compatibility.
+Before using the application, ensure **Docker** is installed. A **CentOS 7** Linux VM is recommended to ensure compatibility.
 
 First, create a Docker network so that our containers can communicate.
 ```
@@ -59,13 +59,13 @@ http://localhost:8080/swagger-ui.html
 > Our REST API shown with the help of SwaggerUI.
 
 
-## Implemenation
+## Implementation
 
 ### Architecture
 
 ![Architecture](assets/architecture.png)
 
-The application uses a DAO design to separate concerns to different layers. **Spring Boot** is used to create the microservices with the help of **Apache Tomcat's** web-servlet functionality.
+The application uses a DAO design to separate concerns into different layers. **Spring Boot** is used to create the microservices with the help of **Apache Tomcat's** web-servlet functionality.
 
 The upper **controller** layer deals with user requests. 
 It contains the REST API calls the user can make, and it is what is seen in Swagger. 
@@ -77,13 +77,13 @@ Once validated, the request is then sent to the DAO layer.
 The **DAO** layer will then take these requests and directly communicate with the database to add, delete, or modify the data.
 The DAO uses **JDBC** to connect to the database and perform SQL queries.
 
-A **PostgreSQL** database is used, however this system was designed using a **JDBC** datasource, meaning that any SQL database can be configured.
+A **PostgreSQL** database is used, however, this system was designed using a **JDBC** datasource, meaning that any SQL database can be configured.
 
 Lastly, the **IEX Cloud** is a web API that contains current stock information. All of our market data is obtained from here.
 
 ### REST API Usage
 #### Swagger
-Swagger is a UI tool that allows us to create interfaces for our REST APIs. It provides with a visual representation of our API, allowing clients to get a better sense of the PoC.
+Swagger is a UI tool that allows us to create interfaces for our REST APIs. It provides a visual representation of our API, allowing clients to get a better sense of the PoC.
 
 #### Quote Controller
 
@@ -112,27 +112,28 @@ as well as withdraw or deposit money from an account.
 
 ## Deployment and Testing
 
-The controllers, services, and DAOs were integration tested using JUnit 4, and met the acceptable benchmark of 60% code coverage.
-Thanks to Spring, we can autowire necessary classes for our tests so that we can test each layer of the DAO for functionality.
+The controllers, services, and DAOs were integration tested using JUnit 4 and met the acceptable benchmark of 60% code coverage.
+Thanks to Spring, we can *autowire* the necessary classes for our tests so that we can test each layer of the DAO for functionality.
 
-How did you test your application? Did you use any testing libraries? What's the code coverage?
+![Docker](assets/docker.png)
 
-- docker diagram including images, containers, network, and docker hub
-  e.g. https://www.notion.so/jarviscanada/Dockerize-Trading-App-fc8c8f4167ad46089099fd0d31e3855d#6f8912f9438e4e61b91fe57f8ef896e0
-- describe each image in details (e.g. how psql initialize tables)
+We deployed our Docker images to DockerHub, allowing anyone to pull them. 
+The PSQL image uses the PostgreSQL base image, while the main application image uses the JDK 8 Alpine base image.
+We then build our two respective containers and connect them through our Docker network.
 
 ## Further Improvements
 
 * **Wider selection of endpoints**
-    * While the current endpoints are able to effectively demonstrate this proof-of-concept application, 
-      more endpoints would be almost necessary in a full deployment to provide a greater range of usable functions. 
+    * While the current endpoints can effectively demonstrate this proof-of-concept application, 
+      more endpoints would be almost necessary for a full deployment to provide a greater range of usable functions. 
       For example, we can include endpoints that deal with the dashboard and orders directly.
       
 
-* **Improvement 2**
-    * While
+* **Alternate stock exchanges**
+    * A nice improvement that would also help with testing the PoC would be to utilize different stock exchanges such as NASDAQ or NYSE.
+  Having a wider selection of exchanges will provide value to a greater range of potential users.
 
 
 * **Startup script**
-    * Rather than providing the instructions to setup the Docker images and network, I could add a startup script that pulls the 
+    * Rather than providing the instructions to set up the Docker images and network, I could add a startup script that pulls the 
   images and sets up the network automatically. This would help the user start the application faster as well as minimize the chance of error.
