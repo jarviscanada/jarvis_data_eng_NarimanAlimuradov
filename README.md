@@ -23,7 +23,9 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_NarimanAli
   - JDBC App: Implemented a JDBC app that connects Java to a PostgreSQL database. Built using the Data Access Object (DAO) pattern and tested on generated SQL sales data. Made in Java with the Maven project management tool.
   - Grep App: Deployed a Java application that can search through files in a folder and filter the content based on a regular expression, similar to the GREP command in Linux. Created using the Maven project management tool and utilizes Java 8 streams for memory efficiency. Packaged using Docker and available on DockerHub.
 
-**Springboot App** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_NarimanAlimuradov/tree/master/springboot)]: Currently in progress!
+**Springboot App** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_NarimanAlimuradov/tree/master/springboot)]: Created a proof-of-concept Java stock trading REST API that aims to modernize Jarvis' previous platform through a microservice design. Allows users to manage trading accounts, as well as get and post IEX quote data. Designed using the Spring framework and packaged using Maven. Database connection support provided by JDBC and deployed as web servlet with the help of SwaggerUI and Apache Tomcat. Available on DockerHub.
+
+**Python Data Analytics** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_NarimanAlimuradov/tree/master/python_data_analytics)]: Currently in progress!
 
 
 ## Highlighted Projects

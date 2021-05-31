@@ -44,9 +44,14 @@
       "name": "Core Java Apps"
     },
     {
-      "description": "Currently in progress!",
+      "description": "Created a proof-of-concept Java stock trading REST API that aims to modernize Jarvis' previous platform through a microservice design. Allows users to manage trading accounts, as well as get and post IEX quote data. Designed using the Spring framework and packaged using Maven. Database connection support provided by JDBC and deployed as web servlet with the help of SwaggerUI and Apache Tomcat. Available on DockerHub.",
       "git_url": "/springboot",
       "name": "Springboot App"
+    },
+    {
+      "description": "Currently in progress!",
+      "git_url": "/python_data_analytics",
+      "name": "Python Data Analytics"
     }
   ],
   "name": "Nariman Alimuradov",
