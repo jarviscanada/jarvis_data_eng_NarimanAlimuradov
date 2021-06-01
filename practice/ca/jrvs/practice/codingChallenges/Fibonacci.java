@@ -1,15 +1,16 @@
-package ca.jrvs.practice.codingChallenge;
+package ca.jrvs.practice.codingChallenges;
 
 /**
  * https://www.notion.so/jarvisdev/Fibonacci-Number-Climbing-Stairs-3d05d38c72e94db2b8c7706e17d014b2
  */
 public class Fibonacci {
+
     /**
      * Standard but time-inefficient approach to solving Fibonacci
      * Recursively calculate the nth Fibonacci number by going down until we reach the base case
      * Time complexity will be O(2^num) because we branch off for each recursion, repeating calculations
      * Space complexity will be O(num) as we have use space on the stack for storing these recursive calls
-     * @param num
+     * @param num integer
      * @return the nth Fibonacci number, where n = num
      */
     public static int fibRecursive(int num){

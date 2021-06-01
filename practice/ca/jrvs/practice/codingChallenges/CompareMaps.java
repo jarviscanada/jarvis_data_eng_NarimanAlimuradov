@@ -1,12 +1,12 @@
-package ca.jrvs.practice.codingChallenge;
+package ca.jrvs.practice.codingChallenges;
 
-import java.util.HashMap;
 import java.util.Map;
 
 /**
  * https://www.notion.so/jarvisdev/How-to-compare-two-maps-11019c48753e474c8b0dbb0b093b4bde
  */
 public class CompareMaps {
+
     /**
      * Simple equals method that checks if two maps are equal
      * Will have runtime of O(n), where n is the length of the shortest map
