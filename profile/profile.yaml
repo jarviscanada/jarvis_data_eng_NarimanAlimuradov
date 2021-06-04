@@ -42,7 +42,7 @@ jarvis_projects:
 
   - name: "Python Data Analytics"
     git_url: "/python_data_analytics"
-    description: "Analyzed Jarvis's client's (London Gift Shop's) retail data to determine the causes of their recent decline in sales. Used statistical techniques to establish solutions for retaining old customers, as well as attracting new ones. Analyses performed in Python and saved in a Jupyter notebook. Uses Pandas, NumPy, and MatPlotLib for data wrangling and visualization. Stored client data in a data warehouse using PostgreSQL."
+    description: "Analyzed Jarvis' client's (London Gift Shop's) retail data to determine the causes of their recent decline in sales. Employed statistical techniques to establish solutions for retaining old customers, as well as attracting new ones. Analyses performed in Python and saved in a Jupyter notebook. Used Pandas, NumPy, and MatPlotLib for data wrangling and visualization. Stored client data in a data warehouse using PostgreSQL."
 
   - name: "Hadoop"
     git_url: "/hadoop"
