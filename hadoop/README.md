@@ -7,17 +7,30 @@
 
 ## Introduction
 
-After a successful job with the Python data analytics, the Jarvis team is now looking to use Apache Hadoop to process big data.
-We are tasked with analyzing and processing the World Development Indicators (WDI) dataset, which contains approximately 22 million data points.
+After a successful job with the Python data analytics project, the Jarvis team is now looking to use Apache Hadoop to process big data.
+We were tasked with analyzing and processing the World Development Indicators (WDI) dataset, which contains approximately 22 million data points.
 
-Built using **Hadoop**, **Hive**, and . Hadoop cluster provisioned using the **Google Cloud Platform**. Results saved to a **Zeppelin** notebook.
+Built using **Hadoop** and **Hive**. Hadoop cluster provisioned using the **Google Cloud Platform**. Results saved to a **Zeppelin** notebook.
 
 ## Hadoop Cluster
-- cluster architecture diagram
-    - 1 master and 2 workers nodes
-    - HDFS, YARN, Zeppelin, Hive (hive Server, hive metastore, RDBMS), etc.
-- Big data tools you evaluated (e.g. MapReduce, YARN, HDFS, Hive, Zeppelin, etc..)
-- hardware specifications
+
+> Basic architecture of the master and worker nodes.
+
+![Architecture](assets/hadoop.png)
+
+A brief rundown of the tools used:
+
+| Tool  | Usage |
+  | ------------- | ------------- |
+| Hadoop | Open-source framework that lets you easily perform distributed computing tasks.  |
+| HDFS | Hadoop's file system. Performs the administrative tasks that make all the nodes look like one system.  |
+| YARN | Hadoop's resource negotiator. Manages jobs and distributes resources on your cluster. |
+| Zeppelin | Online notebook that allows you to perform analytics on your Hadoop cluster. |
+| Hive | Interface that abstracts away the MapReduce implementation and allows you to treat the cluster like an RDBMS. |
+| MapReduce | Algorithm that lets you process data in batches using mappers (distribute and transform the data) and reducers (aggregate data for a result). |
+
+The cluster was provisioned using Google Cloud Platform's **Dataproc**. 
+Two worker nodes and a master node were used, each containing 12 GB of memory with 100 GB in disk size.
 
 ## Hive Project
 When working with lots of data, any minor optimization can have a large impact on query efficiency. 
@@ -37,9 +50,10 @@ Had we not used a columnar file format, we would have to access each row in the 
   * Spark had a noticeably better performance than Apache Tez when tested. We can reduce our overall notebook runtime by using it for each query.
 
 
-* **Improvement 2**
-  * A nice 
+* **More Worker Nodes**
+  * The Hadoop cluster currently uses one master and two worker nodes. Increasing the number of worker nodes on our cluster can allow for greater parallelization which will lead to faster execution times.
 
 
-* **Improvement 3**
-  * Rather than providing the instructions to improvement 3 test.
+* **Further Efficiency Increases**
+  * Hive and Hadoop offer several other ways to make your queries faster, such as map-side joins and indexing. 
+    Every minor improvement in efficiency can go a long way when dealing with big data, so incorporating them into the notebook can shave off a lot of execution time. 
