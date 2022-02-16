@@ -71,6 +71,12 @@
   ],
   "professional_experience": [
     {
+      "company": "Manulife",
+      "description": "Built ETL pipelines to move client data between Oracle and SQL Server databases using SSIS packages and SQL stored procedures. Created Python scripts that connect SQL database to external SharePoint lists and PowerBI reports, allowing business-side changes to be automatically reflected in the database at desired time intervals.",
+      "duration": "2021-2022",
+      "title": "Data Engineer"
+    },
+    {
       "company": "Jarvis",
       "description": "Collaborated in a Scrum team within an Agile environment as a data engineer. Implemented software projects using a variety of technologies such as Linux, Java, SQL, Docker, Git, and GCP to familiarize with current industry trends.",
       "duration": "2020-present",
